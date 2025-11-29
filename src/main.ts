@@ -41,12 +41,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             WorkPlanner — это корпоративный планировщик задач с подробной статистикой и модулем учета сотрудников
           </p>
           <div class="hero-buttons">
-            <button class="btn secondary">Демо доступ</button>
+            <button class="btn secondary">Пробная версия</button>
           </div>
           <div class="stats">
             <div class="stat">
               <div class="stat-number">3</div>
-              <div class="stat-label">Необходимых модуля</div>
+              <div class="stat-label">Основных модуля</div>
             </div>
             <div class="stat">
               <div class="stat-number">до 1500</div>
@@ -66,7 +66,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="preview-content">
                 <div class="screenshot" id="screenshot">
                   <img src="${mainScreen}" alt="Main screen" class="screenshot-img" />
-                  <div class="zoom-indicator">🔍 Нажмите для увеличения</div>
+                  <div class="zoom-indicator">🔍 Увеличить</div>
                 </div>
                 <div class="task completed">✓ Контроль выполнения задач</div>
                 <div class="task active">✓ Анализ рабочей активности</div>
@@ -189,7 +189,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <h4>Продукт</h4>
           <a href="#features">Возможности</a>
           <a href="#details">Подробнее</a>
-          <a href="#demo">Демо</a>
+          <a href="#demo">Пробная версия</a>
         </div>
         <div class="footer-section">
           <h4>Разработчик</h4>
@@ -299,3 +299,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 })
+
+const demoButton = document.querySelector('.btn.secondary') as HTMLButtonElement
+if (demoButton) {
+  demoButton.addEventListener('click', () => {
+    window.open('https://app.workplanner.ru', '_blank')
+  })
+}
