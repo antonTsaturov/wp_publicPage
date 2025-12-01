@@ -44,6 +44,17 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+/* Header */
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+}
 
 /* Header - Mobile responsive */
 .header .container {
@@ -250,18 +261,7 @@ body {
 
 
 
-/* Header */
-/*
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
-  z-index: 1000;
-}
-*/
+
 
 /*
 .header .container {
