@@ -45,7 +45,213 @@ body {
   padding: 0 20px;
 }
 
+/* Header - Mobile responsive */
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 20px;
+  gap: 1rem;
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.logo img {
+  height: 43px;
+}
+
+/* Mobile Navigation */
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.cta-button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Mobile Hamburger Menu */
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 1001;
+}
+
+.mobile-menu-button span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-dark);
+  transition: var(--transition);
+}
+
+.mobile-menu-button.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 3px);
+}
+
+.mobile-menu-button.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-button.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Navigation Menu */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 1.5rem 2rem;
+  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow-y: auto;
+}
+
+.mobile-nav.active {
+  left: 0;
+}
+
+.mobile-nav a {
+  padding: 1rem 0;
+  font-size: 1.125rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.mobile-nav a:hover {
+  color: var(--primary-color);
+  padding-left: 10px;
+}
+
+.mobile-nav a:last-child {
+  border-bottom: none;
+}
+
+.mobile-cta {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.mobile-cta:hover {
+  background: var(--primary-dark);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .header .container {
+    padding: 0.75rem 16px;
+  }
+  
+  .logo img {
+    height: 36px;
+  }
+  
+  .nav {
+    display: none;
+  }
+  
+  .cta-button {
+    display: none;
+  }
+  
+  .mobile-menu-button {
+    display: flex;
+  }
+  
+  .mobile-nav {
+    padding-top: 6rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .header .container {
+    padding: 0.5rem 12px;
+    gap: 0.5rem;
+  }
+  
+  .logo img {
+    height: 32px;
+  }
+  
+  .mobile-menu-button {
+    padding: 6px;
+  }
+  
+  .mobile-menu-button span {
+    width: 20px;
+    min-height: 3px;
+    background: #747474;
+  }
+  
+  .mobile-nav {
+    padding: 5rem 1rem 2rem;
+  }
+  
+  .mobile-nav a {
+    font-size: 1rem;
+    padding: 0.875rem 0;
+  }
+  
+  .mobile-cta {
+    padding: 0.875rem;
+    font-size: 1rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+  .header .container {
+    padding: 0.5rem 8px;
+  }
+  
+  .logo img {
+    height: 28px;
+  }
+  
+  .mobile-menu-button {
+    padding: 4px;
+  }
+  
+  .mobile-nav {
+    padding: 4.5rem 0.75rem 1.5rem;
+  }
+}
+
+
+
+
+
+
+
 /* Header */
+/*
 .header {
   position: fixed;
   top: 0;
@@ -55,14 +261,18 @@ body {
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
 }
+*/
 
+/*
 .header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 20px;
 }
+*/
 
+/*
 .logo {
   display: flex;
   align-items: center;
@@ -71,11 +281,14 @@ body {
   font-size: 1.5rem;
   color: var(--text-dark);
 }
+*/
 
+/*
 .logo img {
   image-rendering: high-quality;
   height: 43px;
 }
+*/
 
 
 .logo-big img {
@@ -167,7 +380,9 @@ body {
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
+/*
   display: inline-block;
+*/
   text-align: center;
 }
 
@@ -722,6 +937,9 @@ body {
   overflow: hidden;
   border: 1px solid var(--border-color);
   transition: var(--transition);
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
 }
 
 .screenshot:hover {
@@ -735,9 +953,10 @@ body {
 
 .screenshot-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   transition: var(--transition);
+  object-fit: contain; /* или contain */
 }
 
 .screenshots-grid {

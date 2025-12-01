@@ -18,19 +18,38 @@ import calendarIcon from './assets/calendar-icon.svg'
 import statsIcon from './assets/stats-icon.svg'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <img src="${workplannerLogoInline}" alt="WorkPlanner Icon" />
-      </div>
-      <nav class="nav">
-        <a href="#features">Возможности</a>
-        <a href="#how-it-works">Как работает</a>
-        <a href="#details">Подробнее</a>
-      </nav>
-      <button class="cta-button btn primary" ig="getContact">Хочу попробовать</button>
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <img src="${workplannerLogoInline}" alt="WorkPlanner Icon" />
     </div>
-  </header>
+    
+    <!-- Desktop Navigation (скрывается на мобильных) -->
+    <nav class="nav">
+      <a href="#features">Возможности</a>
+      <a href="#how-it-works">Как работает</a>
+      <a href="#details">Подробнее</a>
+    </nav>
+    
+    <!-- Desktop CTA button (скрывается на мобильных) -->
+    <button class="cta-button btn primary" id="getContact">Хочу попробовать</button>
+    
+    <!-- Mobile Hamburger Menu -->
+    <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  
+  <!-- Mobile Navigation Menu (скрытый по умолчанию) -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#features">Возможности</a>
+    <a href="#how-it-works">Как работает</a>
+    <a href="#details">Подробнее</a>
+    <button class="mobile-cta" id="mobileGetContact">Хочу попробовать</button>
+  </div>
+</header>
 
   <main>
     <section class="hero" id="demo">
@@ -399,3 +418,51 @@ if (demoButton) {
     window.open('https://app.workplanner.ru', '_blank')
   })
 }
+
+
+// Mobile menu functionality
+const mobileMenuButton = document.getElementById('mobileMenuButton')!
+const mobileNav = document.getElementById('mobileNav')!
+const mobileGetContact = document.getElementById('mobileGetContact')!
+const desktopGetContact = document.getElementById('getContact')!
+
+mobileMenuButton.addEventListener('click', () => {
+  mobileMenuButton.classList.toggle('active')
+  mobileNav.classList.toggle('active')
+  document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : ''
+})
+
+// Close mobile menu when clicking on links
+mobileNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenuButton.classList.remove('active')
+    mobileNav.classList.remove('active')
+    document.body.style.overflow = ''
+  })
+})
+
+// Mobile CTA button
+if (mobileGetContact) {
+  desktopGetContact.classList.add('hidden')
+  mobileGetContact.addEventListener('click', () => {
+    // Тот же функционал, что и у десктопной кнопки
+    document.getElementById('getContact')?.click()
+    
+    // Закрываем меню после клика
+    mobileMenuButton.classList.remove('active')
+    mobileNav.classList.remove('active')
+    document.body.style.overflow = ''
+  })
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement
+  if (mobileNav.classList.contains('active') && 
+      !mobileNav.contains(target) && 
+      !mobileMenuButton.contains(target)) {
+    mobileMenuButton.classList.remove('active')
+    mobileNav.classList.remove('active')
+    document.body.style.overflow = ''
+  }
+})
