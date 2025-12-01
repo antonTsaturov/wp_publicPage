@@ -267,12 +267,18 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div>
         <div class="footer-section">
           <h4>Разработчик</h4>
-          <a href="#">Контакты</a>
+          <a href="#" class="tooltip-dev">Контакты
+            <span class="tooltip">Раздел в разработке</span>
+          </a>
         </div>
         <div class="footer-section">
           <h4>Поддержка</h4>
-          <a href="#">Помощь</a>
-          <a href="#">Документация</a>
+          <a href="#" class="tooltip-dev">Помощь
+            <span class="tooltip">Раздел в разработке</span>
+          </a>
+          <a href="#" class="tooltip-dev">Документация
+            <span class="tooltip">Раздел в разработке</span>
+          </a>
         </div>
       </div>
       <div class="footer-bottom">
