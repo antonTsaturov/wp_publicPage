@@ -394,7 +394,6 @@ body {
 
 .btn.primary:hover {
   background: linear-gradient(180deg, var(--primary-dark) 0%, #753dd4 100%);
-  //transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
 
@@ -1136,6 +1135,19 @@ body {
   flex-shrink: 0;
 }
 
+/* Скрыть иконку на телефонах (обычно до 768px) */
+@media (max-width: 767px) {
+  .contact-icon {
+    display: none;
+  }
+}
+
+/* Альтернативный вариант с более точным брейкпоинтом для телефонов */
+@media (max-width: 480px) {
+  .contact-icon {
+    display: none;
+  }
+}
 .contact-details {
   display: grid;
   grid-template-rows: auto auto;
