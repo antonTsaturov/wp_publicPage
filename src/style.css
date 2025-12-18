@@ -1032,6 +1032,7 @@ body {
   border-radius: 12px;
   padding: 3rem;
   text-align: center;
+  min-height: fit-content;
 }
 
 .modal-close {
