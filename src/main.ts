@@ -122,7 +122,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         
         <div class="contact-modal-header">
           <h3>Связаться с разработчиком</h3>
-          <p>Задайте вопросы и обсудите сотрудничество</p>
+          <p>По вопросам сотрудничества</p>
         </div>
 
 

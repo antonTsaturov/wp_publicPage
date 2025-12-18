@@ -1136,17 +1136,14 @@ body {
 }
 
 /* Скрыть иконку на телефонах (обычно до 768px) */
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .contact-icon {
     display: none;
   }
-}
+} */
 
 /* Альтернативный вариант с более точным брейкпоинтом для телефонов */
 @media (max-width: 480px) {
-  .contact-icon {
-    display: none;
-  }
 }
 .contact-details {
   display: grid;
@@ -1189,8 +1186,8 @@ body {
 /* Responsive Design for Contact Modal */
 @media (max-width: 768px) {
   .modal-content {
-    padding: 2rem 1.5rem;
-    margin: 1rem;
+    /* padding: 2rem 1.5rem;
+    margin: 1rem; */
   }
   
   .contact-actions {
@@ -1203,6 +1200,15 @@ body {
   
   .contact-item {
     padding: 1rem;
+  }
+  .contact-icon {
+    display: none;
+  }
+  .modal-content {
+    scale: 0.9;
+  }
+  .contact-actions {
+    display: none;
   }
 }
 
